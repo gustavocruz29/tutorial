@@ -1,0 +1,12 @@
+<form method="POST">
+    {% csrf_token %}
+    {{form.username.label_tag}}
+    {{form.username}}</br>
+    {{form.password1.label_tag}}
+    {{form.password1}}</br>
+    {{form.password2.label_tag}}
+    {{form.password2}}
+    {{form.errors}}
+    <input type="submit" value="Registrar">
+
+</form>
