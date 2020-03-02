@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from .forms import CadastroUsuarioForm
 
 
 def login(request):
@@ -11,12 +11,12 @@ def sair(request):
 def cadastrar(request):
     
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CadastroUsuarioForm(request.POST)
 
         if form.is_valid():
             form.save()
             return redirect('login')
     else:
-        form = UserCreationForm()
+        form = CadastroUsuarioForm()
 
     return render(request, 'cadastrar.html', {'form' : form})
